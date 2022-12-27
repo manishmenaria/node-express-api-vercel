@@ -7,7 +7,7 @@ const PORT = 4000
 ////////////////
 
 const bodyParser = require("body-parser");
-// const keys = require("./keys");
+const keys = require("./keys");
 
 // const mintNFT = require("/home/manishmenaria/MBM/Biz4Solutions Coding/Final/Part 2/Frontend/fronend/scripts/mint-nft.js");
 
@@ -23,7 +23,9 @@ const axios = require("axios");
 //  ApiKey: "c960a22e122337147fc7",
 //   SecretKey: "c92f5c4517005d9d9b3e41f0f2a4e5ca3c9eae3304a2c086465b6804d60d04ba",
 
-const pinata = new pinataSDK("c960a22e122337147fc7", "c92f5c4517005d9d9b3e41f0f2a4e5ca3c9eae3304a2c086465b6804d60d04ba");
+// const pinata = new pinataSDK("c960a22e122337147fc7", "c92f5c4517005d9d9b3e41f0f2a4e5ca3c9eae3304a2c086465b6804d60d04ba");
+
+const pinata = new pinataSDK(keys.ApiKey, keys.SecretKey);
 
 const fs = require("fs");
 
