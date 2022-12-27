@@ -32,12 +32,12 @@ const instance = axios.create({
   maxContentLength: 100 * 1024 * 1024,
 });
 
-const upload = multer({
-  limits: {
-    fileSize: 100 * 1024 * 1024,
-  },
-  dest: "uploads/",
-});
+// const upload = multer({
+//   limits: {
+//     fileSize: 100 * 1024 * 1024,
+//   },
+//   dest: "uploads/",
+// });
 
 
 // app.post("/upload", upload.single("image"), (request, response) => {
