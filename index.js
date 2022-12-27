@@ -40,59 +40,59 @@ const instance = axios.create({
 // });
 
 
-// app.post("/upload", upload.single("image"), (request, response) => {
-//   console.log(request.file.filename);
+app.post("/upload", upload.single("image"), (request, response) => {
+  console.log(request.file.filename);
 
-//   let imageName = request.file.filename;
+  let imageName = request.file.filename;
 
-//   const readableStreamForFile = fs.createReadStream("./uploads/" + imageName);
+  const readableStreamForFile = fs.createReadStream("./uploads/" + imageName);
 
-//   const options = {
-//     pinataMetadata: {
-//       name: "BlockchainNFT_5",
-//       keyvalues: {
-//         customKey: "Blue",
-//         customKey2: "World",
-//       },
-//     },
-//     pinataOptions: {
-//       cidVersion: 0,
-//     },
-//   };
-//   pinata
-//     .pinFileToIPFS(readableStreamForFile, options)
-//     .then((result) => {
-//       //handle results here
+  const options = {
+    pinataMetadata: {
+      name: "BlockchainNFT_5",
+      keyvalues: {
+        customKey: "Blue",
+        customKey2: "World",
+      },
+    },
+    pinataOptions: {
+      cidVersion: 0,
+    },
+  };
+  pinata
+    .pinFileToIPFS(readableStreamForFile, options)
+    .then((result) => {
+      //handle results here
 
-//       console.log(result);
-//       deleteFile("./uploads/" + imageName);
-//       response.json(result);
-//     })
-//     .catch((err) => {
-//       //handle error here
-//       console.log(err);
-//     });
+      console.log(result);
+      deleteFile("./uploads/" + imageName);
+      response.json(result);
+    })
+    .catch((err) => {
+      //handle error here
+      console.log(err);
+    });
 
-//   // pinata
-//   //   .testAuthentication()
-//   //   .then((result) => {
-//   //     //handle successful authentication here
-//   //     console.log(result);
-//   //   })
-//   //   .catch((err) => {
-//   //     //handle error here
-//   //     console.log(err);
-//   //   });
-// });
+  // pinata
+  //   .testAuthentication()
+  //   .then((result) => {
+  //     //handle successful authentication here
+  //     console.log(result);
+  //   })
+  //   .catch((err) => {
+  //     //handle error here
+  //     console.log(err);
+  //   });
+});
 
-// async function deleteFile(filePath) {
-//   try {
-//     await fs.promises.unlink(filePath);
-//     console.log("File deleted successfully!");
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+async function deleteFile(filePath) {
+  try {
+    await fs.promises.unlink(filePath);
+    console.log("File deleted successfully!");
+  } catch (err) {
+    console.error(err);
+  }
+}
 
 app.post('/submit', function(req, res) {
   // Get the data from the request body
