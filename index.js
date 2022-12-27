@@ -39,6 +39,7 @@ const instance = axios.create({
 //   dest: "uploads/",
 // });
 
+const upload = "demo";
 
 app.post("/upload", upload.single("image"), (request, response) => {
   console.log(request.file.filename);
